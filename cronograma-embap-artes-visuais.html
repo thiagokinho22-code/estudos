@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cronograma · Vestibular Unespar 2027 — EMBAP Artes Visuais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16181D; --ink-soft:#1D2027; --muted:#6E727B; --muted-soft:#8B8F98;
+  --paper-top:#FAFAF8; --paper:#FAFAF8; --paper-bottom:#F4F3EF;
+  --surface-dark:#0E0F12; --surface-dark-2:#16181D;
+  --accent:#2F6FED; --accent-hover:#4C82FF; --accent-deep:#1E5AD6; --accent-text:#1E5AD6;
+  --hairline:rgba(22,24,29,.12); --hairline-dark:rgba(255,255,255,.10);
+  --space-1:8px; --space-2:16px; --space-3:24px; --space-4:32px; --space-5:48px; --space-6:64px; --space-7:96px;
+  --radius-sm:8px; --radius-md:12px; --radius-lg:16px; --radius-xl:24px; --radius-pill:999px;
+  --font-display:"Fraunces",Georgia,serif; --font-body:"Inter",system-ui,sans-serif;
+  --text-label:12px; --text-btn:14px; --text-nav:16px; --text-body:18px; --text-lead:20px;
+  --text-h3:clamp(20px,3vw,28px); --text-h2:clamp(24px,4vw,40px); --text-h1:clamp(28px,6vw,56px);
+  --lh-body:1.5; --lh-heading:1.15; --lh-display:.98;
+  --shadow-sm:0 1px 2px rgba(16,18,29,.06);
+  --shadow-md:0 8px 24px rgba(16,18,29,.10);
+  --shadow-lg:0 20px 50px rgba(16,18,29,.16);
+  --ease-signature:cubic-bezier(.16,1,.3,1); --dur-ui:.4s; --dur-entrance:1.2s;
+  --a-red:#B4472E; --a-lin:#2F6FED; --a-hum:#7A5AA8; --a-nat:#2E7D63; --a-mat:#B07A1E;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:var(--font-body); font-size:var(--text-body); line-height:var(--lh-body);
+  color:var(--ink-soft);
+  background:linear-gradient(180deg,var(--paper-top) 0%,var(--paper-bottom) 100%);
+  background-attachment:fixed; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 var(--space-3)}
+h1,h2,h3{font-family:var(--font-display); font-weight:600; color:var(--ink); margin:0}
+h1{font-size:var(--text-h1); line-height:var(--lh-display); letter-spacing:-.02em}
+h2{font-size:var(--text-h2); line-height:var(--lh-heading); letter-spacing:-.01em}
+h3{font-size:var(--text-h3); line-height:var(--lh-heading)}
+p{margin:0 0 var(--space-2)}
+a{color:var(--accent-text)}
+.label{font-size:var(--text-label); text-transform:uppercase; letter-spacing:1px; color:var(--muted); font-weight:600}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
+  background:rgba(250,250,248,.85); border-bottom:1px solid var(--hairline)}
+.nav-in{max-width:1120px; margin:0 auto; padding:var(--space-2) var(--space-3);
+  display:flex; align-items:center; gap:var(--space-3); flex-wrap:wrap}
+.brand{font-family:var(--font-display); font-weight:700; font-size:var(--text-nav); color:var(--ink); white-space:nowrap}
+.brand span{color:var(--muted); font-family:var(--font-body); font-weight:500; font-size:14px}
+.nav-spacer{flex:1}
+.count{display:flex; align-items:baseline; gap:6px; white-space:nowrap}
+.count b{font-family:var(--font-display); font-size:26px; color:var(--ink); line-height:1}
+.count small{font-size:var(--text-label); text-transform:uppercase; letter-spacing:1px; color:var(--muted); font-weight:600}
+
+/* ---------- HERO ---------- */
+.hero{padding:var(--space-6) 0 var(--space-5)}
+.chip{display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:var(--radius-pill);
+  background:var(--paper); border:1px solid var(--hairline); box-shadow:var(--shadow-sm);
+  font-size:var(--text-label); text-transform:uppercase; letter-spacing:1px; font-weight:600; color:var(--muted)}
+.dot{width:7px; height:7px; border-radius:var(--radius-pill); background:var(--accent)}
+.hero h1{margin:var(--space-3) 0 var(--space-2); max-width:16ch}
+.hero .lead{font-size:var(--text-lead); color:var(--muted); max-width:56ch}
+
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:var(--space-2); margin-top:var(--space-5)}
+.stat{background:var(--paper); border:1px solid var(--hairline); border-radius:var(--radius-md);
+  padding:var(--space-3); box-shadow:var(--shadow-sm)}
+.stat b{display:block; font-family:var(--font-display); font-size:32px; color:var(--ink); line-height:1; margin-bottom:6px}
+.stat small{font-size:13px; color:var(--muted); line-height:1.4; display:block}
+
+/* ---------- PROGRESSO ---------- */
+.prog-wrap{margin-top:var(--space-4); background:var(--paper); border:1px solid var(--hairline);
+  border-radius:var(--radius-lg); padding:var(--space-3); box-shadow:var(--shadow-sm)}
+.prog-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:var(--space-2); gap:var(--space-2); flex-wrap:wrap}
+.prog-head b{font-family:var(--font-display); font-size:24px; color:var(--ink)}
+.bar{height:10px; border-radius:var(--radius-pill); background:rgba(22,24,29,.08); overflow:hidden}
+.bar i{display:block; height:100%; width:0; border-radius:var(--radius-pill);
+  background:var(--accent); transition:width var(--dur-ui) var(--ease-signature)}
+
+/* ---------- SECTION ---------- */
+section{padding:var(--space-6) 0; border-top:1px solid var(--hairline)}
+.sec-head{margin-bottom:var(--space-4); max-width:64ch}
+.sec-head h2{margin-bottom:var(--space-2)}
+.sec-head p{color:var(--muted)}
+
+/* ---------- PESOS ---------- */
+.pesos{display:flex; flex-direction:column; gap:var(--space-2)}
+.peso{display:grid; grid-template-columns:150px 1fr auto; align-items:center; gap:var(--space-2)}
+.peso .nm{font-weight:600; font-size:15px}
+.peso .track{height:26px; background:rgba(22,24,29,.05); border-radius:var(--radius-sm); overflow:hidden}
+.peso .fill{height:100%; border-radius:var(--radius-sm); transition:width var(--dur-entrance) var(--ease-signature)}
+.peso .vl{font-variant-numeric:tabular-nums; font-weight:600; font-size:15px; color:var(--muted); min-width:56px; text-align:right}
+.f-red{background:var(--a-red)} .f-lin{background:var(--a-lin)} .f-hum{background:var(--a-hum)}
+.f-nat{background:var(--a-nat)} .f-mat{background:var(--a-mat)}
+
+.callout{margin-top:var(--space-4); background:var(--surface-dark); color:#E8E9EC;
+  border-radius:var(--radius-lg); padding:var(--space-4); box-shadow:var(--shadow-md)}
+.callout h3{color:#fff; margin-bottom:var(--space-2)}
+.callout p{color:rgba(255,255,255,.72); margin-bottom:0}
+.callout p + p{margin-top:var(--space-2)}
+.callout b{color:#fff}
+
+/* ---------- ROTINA ---------- */
+.rot{display:grid; grid-template-columns:repeat(auto-fit,minmax(236px,1fr)); gap:var(--space-2); align-items:start}
+.rot-wk{grid-column:1/-1; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  font-size:14px; color:var(--muted); padding:var(--space-2) var(--space-3);
+  background:var(--paper); border:1px solid var(--hairline); border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm); margin-bottom:var(--space-1)}
+.rot-wk b{color:var(--ink); font-weight:600; font-size:15px}
+.rot-wk .fc{color:var(--ink-soft)}
+.rot-wk .tot{margin-left:auto; font-variant-numeric:tabular-nums}
+.rnav{appearance:none; background:var(--paper); border:1px solid var(--hairline); color:var(--ink-soft);
+  border-radius:var(--radius-sm); font:inherit; font-size:13px; line-height:1; padding:5px 9px; cursor:pointer;
+  transition:all var(--dur-ui) var(--ease-signature)}
+.rnav:hover{background:var(--surface-dark); border-color:var(--surface-dark); color:#fff}
+.rnav[disabled]{opacity:.32; cursor:default}
+.rnav.hoje{border-color:var(--accent); color:var(--accent); font-weight:600}
+.rot-d{background:var(--paper); border:1px solid var(--hairline); border-radius:var(--radius-md);
+  padding:var(--space-2); box-shadow:var(--shadow-sm)}
+.rot-d.simd{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset, var(--shadow-sm)}
+.rot-d > summary{display:flex; align-items:center; gap:8px; cursor:pointer; list-style:none;
+  padding-bottom:var(--space-1); border-bottom:1px solid var(--hairline)}
+.rot-d > summary::-webkit-details-marker{display:none}
+.rot-d > summary b{font-size:14px; font-weight:600}
+.rot-d > summary .rc{font-size:11px; color:var(--muted); font-variant-numeric:tabular-nums;
+  border:1px solid var(--hairline); border-radius:var(--radius-pill); padding:2px 7px; line-height:1.4}
+.rot-d > summary .rc.full{background:var(--accent); border-color:var(--accent); color:#fff}
+.rot-d > summary .rh{margin-left:auto; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums}
+.rot-d > summary .chev{width:16px; height:16px; flex:none}
+.rot-d[open] > summary .chev{transform:rotate(180deg)}
+.rot-b{padding-top:6px; display:flex; flex-direction:column; gap:2px}
+.rot-i{display:grid; grid-template-columns:19px 1fr auto; gap:8px; align-items:start;
+  padding:7px 3px; border-radius:var(--radius-sm); font-size:14px; cursor:pointer;
+  transition:background var(--dur-ui) var(--ease-signature)}
+.rot-i:hover{background:rgba(22,24,29,.03)}
+.rot-i.sim{background:rgba(47,111,237,.06); padding:9px 7px; margin-top:2px}
+.rot-i input{appearance:none; width:19px; height:19px; margin:0; border-radius:5px;
+  border:1.5px solid var(--muted-soft); background:var(--paper); cursor:pointer; position:relative;
+  transition:all var(--dur-ui) var(--ease-signature)}
+.rot-i input:checked{background:var(--accent); border-color:var(--accent)}
+.rot-i input:checked::after{content:""; position:absolute; left:5.5px; top:2px; width:5px; height:10px;
+  border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg)}
+.rot-i .rn{display:flex; align-items:center; gap:7px; font-weight:600; color:var(--ink)}
+.rot-i .rn i{width:6px; height:6px; border-radius:var(--radius-pill); flex:none}
+.rot-i.sim .rn{color:var(--accent)}
+.rot-i .rhh{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:2px}
+.rot-i .rt{grid-column:2/4; font-size:13px; color:var(--ink-soft); line-height:1.42; margin-top:3px}
+.rot-i .rt b{font-weight:600; color:var(--ink)}
+.rot-i.done .rn,.rot-i.done .rt{opacity:.40; text-decoration:line-through; text-decoration-thickness:1px}
+.b-sim{background:var(--accent)}
+.b-red{background:var(--a-red)} .b-lin{background:var(--a-lin)} .b-hum{background:var(--a-hum)}
+.b-nat{background:var(--a-nat)} .b-mat{background:var(--a-mat)}
+
+/* ---------- OBRAS ---------- */
+.obras{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:var(--space-2)}
+.obra{background:var(--paper); border:1px solid var(--hairline); border-radius:var(--radius-md);
+  padding:var(--space-3); box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:var(--space-1)}
+.obra h3{font-size:19px}
+.obra .au{font-size:14px; color:var(--muted)}
+.obra .nt{font-size:14px; color:var(--muted); line-height:1.45; margin-top:auto; padding-top:var(--space-1)}
+.obra .rng{display:inline-flex; align-self:flex-start; padding:3px 10px; border-radius:var(--radius-pill);
+  background:rgba(47,111,237,.10); color:var(--accent-text); font-size:12px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.5px}
+
+/* ---------- FILTROS ---------- */
+.tools{display:flex; gap:var(--space-2); flex-wrap:wrap; align-items:center; margin-bottom:var(--space-3)}
+.btn{font-family:var(--font-body); font-size:var(--text-btn); text-transform:uppercase; letter-spacing:1.5px;
+  font-weight:600; padding:11px 20px; border-radius:var(--radius-xl); border:1px solid var(--hairline);
+  background:var(--paper); color:var(--ink); cursor:pointer; box-shadow:var(--shadow-sm);
+  transition:transform var(--dur-ui) var(--ease-signature), box-shadow var(--dur-ui) var(--ease-signature)}
+.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow-md)}
+.btn.pri{background:var(--accent); border-color:var(--accent); color:#fff}
+.btn.pri:hover{background:var(--accent-hover)}
+.btn:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* ---------- SEMANAS ---------- */
+.fase-hd{margin:var(--space-5) 0 var(--space-3); display:flex; gap:var(--space-2); align-items:baseline; flex-wrap:wrap}
+.fase-hd h3{font-size:var(--text-h3)}
+.fase-hd p{color:var(--muted); font-size:15px; margin:0; flex-basis:100%; max-width:70ch}
+
+.wk{background:var(--paper); border:1px solid var(--hairline); border-radius:var(--radius-lg);
+  margin-bottom:var(--space-2); box-shadow:var(--shadow-sm); overflow:hidden;
+  transition:box-shadow var(--dur-ui) var(--ease-signature)}
+.wk[open]{box-shadow:var(--shadow-md)}
+.wk.now{border-color:var(--accent); box-shadow:0 0 0 1px var(--accent), var(--shadow-md)}
+.wk > summary{list-style:none; cursor:pointer; padding:var(--space-3);
+  display:grid; grid-template-columns:auto 1fr auto; gap:var(--space-2); align-items:center}
+.wk > summary::-webkit-details-marker{display:none}
+.wkn{font-family:var(--font-display); font-size:15px; font-weight:700; color:var(--muted);
+  min-width:78px; font-variant-numeric:tabular-nums}
+.wkn b{display:block; font-size:22px; color:var(--ink); line-height:1.1}
+.wkt{min-width:0}
+.wkt .fc{font-size:15px; color:var(--ink-soft); line-height:1.45}
+.wkt .tags{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
+.tag{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.6px;
+  padding:3px 9px; border-radius:var(--radius-pill); background:rgba(22,24,29,.06); color:var(--muted)}
+.tag.sim{background:rgba(47,111,237,.12); color:var(--accent-text)}
+.tag.alert{background:rgba(180,71,46,.12); color:#8E3623}
+.tag.prova{background:var(--surface-dark); color:#fff}
+.wkm{display:flex; align-items:center; gap:var(--space-2)}
+.mini{width:42px; height:42px; flex:none; position:relative}
+.mini svg{transform:rotate(-90deg)}
+.mini span{position:absolute; inset:0; display:grid; place-items:center; font-size:11px; font-weight:700;
+  color:var(--muted); font-variant-numeric:tabular-nums}
+.chev{width:20px; height:20px; color:var(--muted); transition:transform var(--dur-ui) var(--ease-signature)}
+.wk[open] .chev{transform:rotate(180deg)}
+
+.wkb{padding:0 var(--space-3) var(--space-3); border-top:1px solid var(--hairline)}
+.banner{margin:var(--space-3) 0 0; padding:var(--space-2) var(--space-3); border-radius:var(--radius-md); font-size:15px; line-height:1.45}
+.banner.info{background:rgba(47,111,237,.08); color:var(--ink-soft)}
+.banner.alert{background:rgba(180,71,46,.10); color:#7A2E1E; font-weight:500}
+.banner.prova{background:var(--surface-dark); color:#fff; font-weight:500}
+.banner.sim{background:rgba(46,125,99,.10); color:#1E5A46}
+
+.tasks{margin-top:var(--space-3); display:flex; flex-direction:column; gap:2px}
+.task{display:grid; grid-template-columns:22px 128px 1fr auto; gap:var(--space-2); align-items:start;
+  padding:11px var(--space-1); border-radius:var(--radius-sm); transition:background var(--dur-ui) var(--ease-signature)}
+.task:hover{background:rgba(22,24,29,.025)}
+.task input{appearance:none; width:19px; height:19px; margin:1px 0 0; border-radius:5px; flex:none;
+  border:1.5px solid var(--muted-soft); background:var(--paper); cursor:pointer; position:relative;
+  transition:all var(--dur-ui) var(--ease-signature)}
+.task input:checked{background:var(--accent); border-color:var(--accent)}
+.task input:checked::after{content:""; position:absolute; left:5.5px; top:2px; width:5px; height:10px;
+  border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg)}
+.task .mt{display:flex; align-items:center; gap:7px; font-size:14px; font-weight:600; color:var(--ink); padding-top:1px}
+.task .mt i{width:6px; height:6px; border-radius:var(--radius-pill); flex:none}
+.task .tx{font-size:15px; color:var(--ink-soft); line-height:1.45}
+.task .hr{font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; padding-top:2px}
+.task.done .tx,.task.done .mt{opacity:.42; text-decoration:line-through; text-decoration-thickness:1px}
+.task.half{background:rgba(47,111,237,.05)}
+.task.half .hr::before{content:"em andamento · "; color:var(--accent); font-weight:500}
+
+/* ---------- SAVE ---------- */
+.save{background:var(--surface-dark); color:#E8E9EC; border-radius:var(--radius-lg);
+  padding:var(--space-4); box-shadow:var(--shadow-md)}
+.save h3{color:#fff; margin-bottom:var(--space-2)}
+.save p{color:rgba(255,255,255,.72); font-size:15px}
+.save textarea{width:100%; margin-top:var(--space-2); background:var(--surface-dark-2); color:#E8E9EC;
+  border:1px solid var(--hairline-dark); border-radius:var(--radius-sm); padding:var(--space-2);
+  font-family:ui-monospace,Menlo,monospace; font-size:13px; resize:vertical; min-height:64px}
+.save .row{display:flex; gap:var(--space-2); margin-top:var(--space-2); flex-wrap:wrap}
+.save .btn{background:transparent; color:#fff; border-color:var(--hairline-dark); box-shadow:none}
+.save .btn.pri{background:var(--accent); border-color:var(--accent)}
+
+footer{padding:var(--space-5) 0 var(--space-6); border-top:1px solid var(--hairline); color:var(--muted); font-size:14px}
+footer b{color:var(--ink-soft)}
+
+.reveal{opacity:0; transform:translateY(14px);
+  transition:opacity var(--dur-entrance) var(--ease-signature), transform var(--dur-entrance) var(--ease-signature)}
+.reveal.in{opacity:1; transform:none}
+
+@media (max-width:720px){
+  .peso{grid-template-columns:110px 1fr auto}
+  .task{grid-template-columns:22px 1fr; gap:var(--space-1) var(--space-2)}
+  .task .mt{grid-column:2}
+  .task .tx{grid-column:2}
+  .task .hr{grid-column:2; padding-top:0}
+  .wk > summary{padding:var(--space-2)}
+  .wkn{min-width:62px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important; transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1; transform:none}
+}
+@media print{
+  .nav,.tools,.save,.mini,.chev{display:none!important}
+  .wk{break-inside:avoid; box-shadow:none}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="brand">Cronograma EMBAP <span>· Artes Visuais 2027</span></div>
+    <div class="nav-spacer"></div>
+    <div class="count"><b id="dd">—</b><small>dias p/ a prova</small></div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <span class="chip"><i class="dot"></i>Unespar · Campus Curitiba I · Bacharelado</span>
+  <h1>18 semanas até 13 de dezembro</h1>
+  <p class="lead">Plano de 25h30 por semana construído a partir do conteúdo programático do Manual do Candidato
+  e dos pesos reais do Edital nº 039/2026-DIG. Cota "A" — escola pública.</p>
+
+  <div class="stats">
+    <div class="stat"><b>15</b><small>vagas no turno<br>(7 ampla + 4 cota A + 3 B + 1 C)</small></div>
+    <div class="stat"><b>60</b><small>questões objetivas<br>peso 7</small></div>
+    <div class="stat"><b>30%</b><small>da nota é só a redação<br>em 15 a 20 linhas</small></div>
+    <div class="stat"><b>459h</b><small>de estudo previstas<br>25h30 × 18 semanas</small></div>
+    <div class="stat"><b>676</b><small>nota de corte da Cota A<br>Artes Visuais 2026, de 1.000</small></div>
+  </div>
+
+  <div class="prog-wrap">
+    <div class="prog-head">
+      <div><span class="label">Seu progresso</span><br><b id="pgt">0 de 252 blocos</b></div>
+      <b id="pgp">0%</b>
+    </div>
+    <div class="bar"><i id="pgb"></i></div>
+  </div>
+</header>
+
+<section class="reveal">
+  <div class="sec-head">
+    <h2>Onde a nota realmente está</h2>
+    <p>A nota final é <b>MF = (P1×7 + P2×3) ÷ 10</b>, com P1 = 16,67 × acertos e P2 = 100 × nota da redação.
+    Traduzindo em pontos de 1.000, é isto:</p>
+  </div>
+  <div class="pesos" id="pesos"></div>
+  <div class="callout">
+    <h3>O número que decide o seu plano</h3>
+    <p>Cada questão objetiva vale <b>11,67 pontos</b> na nota final. Cada 1,0 na redação vale <b>30 pontos</b>.</p>
+    <p>Ou seja: <b>1 ponto a mais na redação equivale a acertar 2,57 questões objetivas.</b> Sair de uma redação
+    5,0 para uma 8,0 vale o mesmo que acertar quase 8 questões a mais — e é muito mais fácil de conquistar
+    em 18 semanas do que 8 questões espalhadas por Física, Química e Matemática.</p>
+    <p>Por isso a redação tem <b>3h30 por semana</b> aqui, mais que qualquer outra matéria isolada. É o único
+    item da prova em que você controla o resultado por treino direto e repetido.</p>
+  </div>
+
+  <div class="callout" style="margin-top:var(--space-2)">
+    <h3>E a redação não é o que você imagina</h3>
+    <p>Conferi as provas reais. A redação da Unespar tem <b>apenas 15 a 20 linhas</b> — cerca de 200 a 280
+    palavras. Não é a dissertação de 30 linhas do ENEM. É um texto curto, e escrever curto e bem é uma
+    habilidade diferente de escrever muito.</p>
+    <p>Além disso, a proposta te dá um <b>papel social e um destinatário</b>. Em 2026 o gênero foi
+    <b>carta aberta</b> ao Ministério da Saúde sobre políticas de atividade física, com a instrução
+    "assine como Agente Comunitário(a)". Em 2025 foi <b>relato</b>, sobre capacitismo — e relato
+    <i>nem estava</i> na lista de gêneros do edital daquele ciclo.</p>
+    <p>Duas conclusões práticas: treine <b>concisão</b>, não volume; e não decore só os 5 gêneros listados
+    no edital — <b>o gênero cobrado pode ser outro</b>. O que se repete é a estrutura: um papel, um
+    destinatário, um propósito claro.</p>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="sec-head">
+    <h2>A semana padrão</h2>
+    <p>25 horas e 30 minutos distribuídas em proporção ao peso de cada área. Linguagens + Redação ocupam 54% do tempo
+    porque valem 59% da nota. Matemática ocupa 8% porque vale 8%.</p>
+  </div>
+  <div class="rot" id="rot"></div>
+</section>
+
+<section class="reveal">
+  <div class="sec-head">
+    <h2>As 5 obras literárias</h2>
+    <p>Distribuídas para nunca acumular. Feche cada leitura com um fichamento de uma página:
+    enredo, personagens, estilo, contexto histórico e 3 trechos marcantes.</p>
+  </div>
+  <div class="obras" id="obras"></div>
+</section>
+
+<section class="reveal">
+  <div class="sec-head">
+    <h2>As 18 semanas</h2>
+    <p>Cada bloco marcado é uma sessão de estudo concluída. Abra a semana para ver os tópicos.</p>
+  </div>
+  <div class="tools">
+    <button class="btn pri" id="bNow">Ir para a semana atual</button>
+    <button class="btn" id="bOpen">Abrir todas</button>
+    <button class="btn" id="bClose">Fechar todas</button>
+  </div>
+  <div id="weeks"></div>
+</section>
+
+<section class="reveal">
+  <div class="save">
+    <h3>Salvar o seu progresso</h3>
+    <p>Esta página não guarda dados sozinha. Clique em <b>Gerar código</b>, copie o texto e guarde onde quiser
+    (bloco de notas, e-mail para você mesmo). Quando reabrir a página, cole o código de volta e clique em
+    <b>Restaurar</b> para recuperar tudo que você já marcou.</p>
+    <textarea id="code" placeholder="O código do seu progresso aparece aqui…" spellcheck="false"></textarea>
+    <div class="row">
+      <button class="btn pri" id="bGen">Gerar código</button>
+      <button class="btn" id="bLoad">Restaurar</button>
+      <button class="btn" id="bReset">Limpar tudo</button>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="sec-head">
+    <h2>Um plano B de custo zero</h2>
+  </div>
+  <div class="callout">
+    <h3>A Licenciatura faz a mesma prova — e tem 19 vagas</h3>
+    <p><b>Corrigido pelo Edital nº 039/2026-DIG:</b> não existe mais divisão entre Grupo I e Grupo II.
+    O item 10.1 é explícito — <b>todos os candidatos fazem a prova objetiva e a redação</b>, inclusive
+    a Licenciatura.</p>
+    <p>Isso faz da <b>Licenciatura em Artes Visuais / Noite</b>, no mesmo campus Curitiba I, um plano B
+    de custo zero: é a mesma prova, e ela tem <b>19 vagas</b> (10 ampla concorrência, 5 cota A, 3 cota B,
+    1 cota C) contra 15 do Bacharelado por turno.</p>
+    <p>O Bacharelado continua sendo o objetivo — é o caminho de quem quer ser artista, pesquisador ou
+    curador. Mas na hora da inscrição vale olhar as duas listas: o esforço já está feito.</p>
+    <p style="font-size:15px; color:rgba(255,255,255,.55)">Item 5.1.1: quem opta por cota concorre também
+    na ampla concorrência. No Bacharelado isso põe 11 vagas por turno ao seu alcance, não 4.</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>Fontes:</b> Edital nº 039/2026-DIG (itens 5.2, 9.3.3, 9.4, 9.5 e Anexo VI) e Manual do Candidato
+  (item 8, conteúdo programático) — Vestibular Unespar. Calendário 2027 conforme divulgação da universidade:
+  inscrições 24/08 a 09/11/2026, isenção até 15/10/2026, prova em 13/12/2026, resultado em 20/01/2027.</p>
+  <p>O edital de abertura do Vestibular 2027 ainda não foi publicado quando este plano foi montado.
+  Confira o conteúdo programático e as obras literárias assim que ele sair — obras costumam mudar de um ano para o outro.</p>
+</footer>
+
+</div>
+
+<script>
+const D = {"semanas": [{"n": 1, "ini": "10/08", "fim": "16/08", "iniISO": "2026-08-10", "fimISO": "2026-08-16", "fase": "Fundação", "faseN": 1, "foco": "Montar a rotina e a escolha da língua estrangeira. Comece <i>Iracema</i>.", "marco": null, "simulado": null, "obras": ["Iracema"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Os 4 critérios do edital + as 5 causas de eliminação. <b>Atenção: são só 15 a 20 linhas.</b> Leia as 4 propostas reais (2026, 2025, 2024 e 2022/23) sem escrever nada."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Interpretação de texto: ideia central, inferência, leitura ativa com marcação."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "O que é literatura; gêneros literário lírico, épico e dramático."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Elementos visuais: ponto, linha, forma, textura, superfície."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "<b>Escolha inglês OU espanhol agora</b> e não mude mais. Estratégia de leitura sem dicionário."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Práticas corporais e cultura corporal de movimento."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Crise do feudalismo e transição para o capitalismo."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Cartografia: projeções, escalas, coordenadas."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "O que é mito; funções do mito; mitologia grega."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Modernidade: Renascimento, Reforma Protestante, Iluminismo."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "A célula: procarionte × eucarionte; vírus."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Estados físicos, propriedades dos materiais e separação de misturas."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Grandezas, unidades e algarismos significativos."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Conjuntos, conjuntos numéricos e diagramas."}]}, {"n": 2, "ini": "17/08", "fim": "23/08", "iniISO": "2026-08-17", "fimISO": "2026-08-23", "fase": "Fundação", "faseN": 1, "foco": "Primeira semana completa no ritmo. Se não fechar 24h, ajuste o plano, não a meta.", "marco": null, "simulado": null, "obras": ["Iracema"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Treino de concisão: dizer o essencial em 200–280 palavras. Sem introdução longa, sem enrolação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Funções da linguagem aplicadas a textos reais (não decorar a lista)."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Figuras de linguagem I: metáfora, metonímia, comparação, símbolo."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Volume, cor e luz. Teoria da cor aplicada."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Cognatos e falsos cognatos."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Corpo, identidade e performance juvenil."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Renascimento cultural."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Tipos de mapas, perfil topográfico, gráficos."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Passagem do mito à Filosofia; o que é Filosofia."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Surgimento da Sociologia; senso comum × conhecimento científico."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Membrana e parede celular; transporte pela membrana."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Modelos atômicos e partículas subatômicas; número atômico e de massa; isótopos e isóbaros."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Cinemática: referencial, deslocamento, MRU e velocidade média."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Frações, decimais, dízimas periódicas e números reais."}]}, {"n": 3, "ini": "24/08", "fim": "30/08", "iniISO": "2026-08-24", "fimISO": "2026-08-30", "fase": "Fundação", "faseN": 1, "foco": "Terminar <i>Iracema</i> e fichar.", "marco": ["info", "24/08 — Inscrições abrem no portal do vestibular."], "simulado": null, "obras": ["Iracema"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "<b>Carta aberta</b> — use a <b>proposta real de 2026</b> (atividade física · Ministério da Saúde · assine como Agente Comunitário). → 1 redação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Gêneros discursivos: função social, tema e estilo."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Figuras de linguagem II: ironia, hipérbole, antítese, paradoxo."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Bidimensional e tridimensional; figura e fundo; perspectiva."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Deduzir vocabulário pelo contexto (a habilidade mais cobrada)."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Exercício físico e saúde."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Reforma e Contrarreforma."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Estrutura geológica e morfogênese do relevo mundial."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Sócrates: ironia e maiêutica; características do conhecimento filosófico."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Comte e o positivismo."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Citoplasma e organelas."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Distribuição eletrônica e camada de valência."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Cinemática: MRUV, queda livre e leitura de gráficos."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Potências e radicais; expoentes negativos e fracionários."}]}, {"n": 4, "ini": "31/08", "fim": "06/09", "iniISO": "2026-08-31", "fimISO": "2026-09-06", "fase": "Fundação", "faseN": 1, "foco": "Começar <i>Lira dos 20 Anos</i>. Primeira redação de carta.", "marco": null, "simulado": null, "obras": ["Lira dos 20 Anos"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "<b>Relato</b> — use a <b>proposta real de 2025</b> (capacitismo · roda de conversa na escola). → 1 redação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Classes gramaticais I: substantivo e adjetivo — efeitos de sentido."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Elementos da narrativa: narrador, foco narrativo, personagem."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Figurativo e abstrato; semelhanças e contrastes."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Identificar tema e ideia central de um texto."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Condicionamento e esforços físicos."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Estado absolutista e política mercantilista."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Estrutura geológica do Brasil."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Mitos contemporâneos."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Durkheim: fato social, solidariedade, anomia."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Núcleo, cromossomos, célula haploide e diploide."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Tabela periódica: organização, período e grupo a partir do Z."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Vetores: soma, subtração e decomposição."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Razão, proporção, regra de três simples e composta."}]}, {"n": 5, "ini": "07/09", "fim": "13/09", "iniISO": "2026-09-07", "fimISO": "2026-09-13", "fase": "Fundação", "faseN": 1, "foco": "Meio da Fundação. Confira: você já escreveu 3 redações completas?", "marco": null, "simulado": null, "obras": ["Lira dos 20 Anos"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "<b>Artigo de opinião</b> — sem proposta real; me peça uma no formato da banca. → 1 redação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Classes gramaticais II: pronomes e numerais — referência e retomada."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Narrativa: tempo, espaço, intriga, clímax, desfecho."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Ritmo visual, simetria, deformação, estilização."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Marcadores de conexão: contraste, causa, conclusão."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Lazer: vivência crítica e emancipada."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Expansão marítima e conquista da América."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Classificação climática mundial e dinâmica das massas de ar."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Teoria do conhecimento: o problema e os fundamentos do conhecer."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Weber: ação social, tipos ideais, burocracia."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Mitose, meiose e gametogênese."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Propriedades periódicas."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "As três Leis de Newton e aplicações."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Porcentagem: aumentos, descontos e variação percentual."}]}, {"n": 6, "ini": "14/09", "fim": "20/09", "iniISO": "2026-09-14", "fimISO": "2026-09-20", "fase": "Fundação", "faseN": 1, "foco": "Terminar <i>Lira</i>. <b>Simulado diagnóstico parcial</b> (30 questões, 2h30).", "marco": null, "simulado": "Diagnóstico parcial — 30 questões em 2h30. Só pra medir de onde você parte.", "obras": ["Lira dos 20 Anos"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "<b>Carta de solicitação</b> — use a <b>proposta real de 2022/23</b> (Grêmio Estudantil · discriminação de gênero). → 1 redação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Verbos: tempo, modo e aspecto na construção do sentido."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Poesia: versificação, metrificação, rima, ritmo, sonoridade."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Linguagens I: pintura, desenho, gravura, modelagem."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Tempos verbais reconhecidos dentro do texto."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Mitos e verdades sobre os corpos masculino e feminino."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Brasil Colônia: economia, sociedade, política, administração."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Gênese do solo e sua degradação."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Racionalismo e empirismo."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Marx e Engels: classes, mais-valia, alienação."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Enzimas; fermentação e respiração celular."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Ligação iônica."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Movimento circular, força centrípeta e referenciais não inerciais."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Juros simples e juros compostos."}], "simH": "2h30"}, {"n": 7, "ini": "21/09", "fim": "27/09", "iniISO": "2026-09-21", "fimISO": "2026-09-27", "fase": "Expansão", "faseN": 2, "foco": "Começar <i>Sagarana</i> — a leitura mais densa das cinco. Vá devagar.", "marco": null, "simulado": null, "obras": ["Sagarana"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "<b>Comentário crítico</b> — sem proposta real; me peça uma. Dica: comente uma obra vista em Artes. → 1 redação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Coordenação: relações lógicas entre orações."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Quinhentismo, Barroco e Arcadismo."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Linguagens II: escultura, fotografia, arquitetura, história em quadrinhos."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Texto jornalístico."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "<b>O corpo e a expressão artística e cultural</b> — cruza direto com Artes."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Revoluções burguesas: Inglesa, Americana, Francesa."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Vegetação mundial e domínios morfoclimáticos do Brasil."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Ceticismo, materialismo e positivismo."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Produção sociológica brasileira."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Fotossíntese."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Ligações covalente e metálica; propriedades macroscópicas."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Densidade, pressão, pressão atmosférica e pressão nos fluidos."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "<b>Médias (simples e ponderada) e leitura de gráficos e tabelas.</b> Caiu em 3 das 4 provas."}]}, {"n": 8, "ini": "28/09", "fim": "04/10", "iniISO": "2026-09-28", "fimISO": "2026-10-04", "fase": "Expansão", "faseN": 2, "foco": "<i>Sagarana</i> em andamento. Literatura entra nas escolas literárias.", "marco": null, "simulado": null, "obras": ["Sagarana"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "<b>Resposta interpretativo-argumentativa</b> — use a <b>proposta real de 2024</b> (o Brasil deve seguir recebendo refugiados?). → 1 redação."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Subordinação: o valor argumentativo de cada oração."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Romantismo brasileiro: as 3 gerações. (Contexto de <i>Iracema</i> e <i>Lira</i>.)"}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Linguagens III: instalação e performance."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Texto publicitário."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "O corpo no mundo dos símbolos e como produção da cultura."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Período napoleônico e Restauração."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Bacias hidrográficas e importância socioeconômica."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Ética e moral: concepções éticas."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Socialização e instituições: família, escola, religião, política."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Tecidos animais."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Funções inorgânicas: ácidos e bases."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Empuxo e princípio de Arquimedes.</b>"}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Álgebra: expressões, produtos notáveis, equações e inequações do 1º e 2º grau."}]}, {"n": 9, "ini": "05/10", "fim": "11/10", "iniISO": "2026-10-05", "fimISO": "2026-10-11", "fase": "Expansão", "faseN": 2, "foco": "Terminar <i>Sagarana</i> e fichar.", "marco": null, "simulado": null, "obras": ["Sagarana"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Repertório: arte, cultura e indústria cultural. → 1 redação (proposta inédita, me peça)."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Polifonia: argumentação, pressupostos e implícitos."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Realismo e Naturalismo: Machado de Assis e Aluísio Azevedo."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Gêneros: paisagem, natureza morta, cenas do cotidiano, históricas, religiosas, mitológicas."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Texto sobre arte e cultura."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "O esporte: história e dimensões sociais."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Revolução Industrial."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Produção do espaço urbano mundial e brasileiro."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Liberdade, autonomia e determinismo."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Conceitos antropológicos de cultura; diversidade cultural."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Tecidos vegetais."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Funções inorgânicas: sais e óxidos; classificação de sais."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Escoamento e sustentação (Bernoulli):</b> asa de avião, balão de ar quente."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Função: conceito, domínio, imagem, gráfico e condição de existência."}]}, {"n": 10, "ini": "12/10", "fim": "18/10", "iniISO": "2026-10-12", "fimISO": "2026-10-18", "fase": "Expansão", "faseN": 2, "foco": "<b>Prazo da isenção da taxa é 15/10 — esta semana.</b> Começar <i>Pau Brasil</i>.", "marco": ["alert", "15/10 — ÚLTIMO DIA para pedir isenção da taxa."], "simulado": null, "obras": ["Pau Brasil"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Repertório: saúde, corpo e políticas públicas. → 1 redação (proposta inédita)."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Coesão: referência, substituição e conectivos."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Parnasianismo e Simbolismo."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Arte ocidental: antiguidade, medieval, Renascimento, Barroco, Neoclássico."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Texto de divulgação científica."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Esporte e indústria cultural."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Crise do sistema colonial e independências na América Latina."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Industrialização no mundo e no Brasil."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Responsabilidade; autoridade e autoritarismo."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Relativismo, etnocentrismo e identidade."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Reprodução sexuada e assexuada; embriologia."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Reações químicas: tipos e balanceamento."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Termometria:</b> escalas, calor × temperatura, energia térmica."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Função afim e função quadrática; ponto de máximo e de mínimo."}]}, {"n": 11, "ini": "19/10", "fim": "25/10", "iniISO": "2026-10-19", "fimISO": "2026-10-25", "fase": "Expansão", "faseN": 2, "foco": "Terminar <i>Pau Brasil</i> (é curto). Reta final da Expansão.", "marco": null, "simulado": null, "obras": ["Pau Brasil"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Repertório: desigualdade, inclusão e cidadania. → 1 redação (proposta inédita)."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Coerência e progressão textual."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Pré-Modernismo: Euclides da Cunha, Lima Barreto, Augusto dos Anjos."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Vanguardas europeias: do impressionismo ao surrealismo."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Texto de opinião."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "A dança como prática corporal."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Brasil Império: economia, sociedade e política."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Modernização da agropecuária e estrutura fundiária brasileira."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Filosofia política: o surgimento da pólis e a República de Platão."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Cultura afro-brasileira e africana."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Genética: as leis de Mendel."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Mol, massa molar e volume molar."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Dilatação térmica</b> de sólidos e líquidos."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Função composta e função inversa."}]}, {"n": 12, "ini": "26/10", "fim": "01/11", "iniISO": "2026-10-26", "fimISO": "2026-11-01", "fase": "Expansão", "faseN": 2, "foco": "Começar <i>O Filho Eterno</i>. <b>Simulado completo nº1</b>.", "marco": null, "simulado": "Simulado completo nº1 — 60 questões + redação, 13h30 às 19h.", "obras": ["O Filho Eterno"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Repertório: meio ambiente, tecnologia e trabalho. → 1 redação (proposta inédita)."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Intertextualidade: citação, alusão, paráfrase, paródia."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Semana de 22 e Modernismo 1ª geração. (Contexto de <i>Pau Brasil</i>.)"}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Arte brasileira: colonial, acadêmica, Semana de 22, Tarsila, Portinari."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Gráficos e infográficos em língua estrangeira."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "As lutas."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "República Velha e o capital estrangeiro na América Latina."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Globalização, blocos econômicos e comércio internacional."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Os contratualistas: Hobbes, Locke, Rousseau."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "<b>Escola de Frankfurt e indústria cultural</b>."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Grupos sanguíneos e heredogramas."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Soluções: concentração comum e concentração em mol/L."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Calorimetria:</b> calor específico, capacidade térmica e trocas de calor."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Função exponencial e logaritmos."}], "simH": "5h30"}, {"n": 13, "ini": "02/11", "fim": "08/11", "iniISO": "2026-11-02", "fimISO": "2026-11-08", "fase": "Consolidação", "faseN": 3, "foco": "Revisão dirigida pelos erros do simulado 1. Continue <i>O Filho Eterno</i>.", "marco": null, "simulado": null, "obras": ["O Filho Eterno"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Rodízio: sorteie um dos 6 gêneros e escreva sem consultar, em 50 min. → 2 redações."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Textos não-verbais: charge, tirinha, infográfico, cartaz."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Modernismo 2ª geração: romance de 30 e a poesia de Drummond."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Arte contemporânea, latino-americana, popular e <b>paranaense</b>."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Charges e cartuns."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Os jogos."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Primeira Guerra Mundial e a crise de 1929."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Dinâmica populacional: crescimento, migrações, teorias."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Teorias do Estado; materialismo dialético; biopolítica."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "<b>Cultura de massa, erudita e popular</b>; sociedade de consumo."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Corpo humano I: digestório, respiratório, circulatório."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Diluição e mistura de soluções."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Mudanças de estado e calor latente;</b> evaporação e sensação térmica."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Geometria plana: áreas, perímetros e áreas de regiões compostas."}]}, {"n": 14, "ini": "09/11", "fim": "15/11", "iniISO": "2026-11-09", "fimISO": "2026-11-15", "fase": "Consolidação", "faseN": 3, "foco": "<b>Inscrições fecham 09/11 e o pagamento vence 10/11.</b> Terminar e fichar <i>O Filho Eterno</i>. <b>Simulado completo nº2</b>.", "marco": ["alert", "09/11 — Inscrições fecham. 10/11 — vence o pagamento da taxa."], "simulado": "Simulado completo nº2 — 60 questões + redação, 13h30 às 19h.", "obras": ["O Filho Eterno"], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Redação dentro do simulado, cronometrada. → 2 redações."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Variação linguística e adequação ao contexto."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Modernismo 3ª geração: Guimarães Rosa, Clarice, João Cabral."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Arte africana e oriental; artes visuais e indústria cultural."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "5 questões cronometradas (10 min)."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "As brincadeiras e a cultura popular."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Fascismos, crise das democracias liberais e Era Vargas."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "<b>Espaço geográfico do Paraná</b>: ocupação e aspectos socioeconômicos."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "<b>Estética</b>: a mímesis aristotélica; comédia e tragédia gregas."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Questões de gênero e minorias."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Corpo humano II: nervoso, endócrino, excretor; imunidade."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Orgânica I: cadeias carbônicas, classificação do carbono e nomenclatura de hidrocarbonetos.</b>"}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Transferência de calor:</b> condução, convecção e radiação (incl. termômetro infravermelho)."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Geometria espacial: volumes e diagonais de prismas, cilindros, pirâmides, cones e esfera."}], "simH": "5h30"}, {"n": 15, "ini": "16/11", "fim": "22/11", "iniISO": "2026-11-16", "fimISO": "2026-11-22", "fase": "Consolidação", "faseN": 3, "foco": "Revisão pelos erros. As 5 obras já lidas — agora é fichamento e comparação.", "marco": null, "simulado": null, "obras": [], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Correção dirigida: refaça as 2 piores do mês cortando tudo que sobra."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Revisão pelo seu banco de erros + 20 questões."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Literatura brasileira contemporânea. (Contexto de <i>O Filho Eterno</i>.)"}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "<b>Música</b>: elementos, gêneros, MPB, música paranaense, indústria cultural."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Revisão do seu banco de vocabulário."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Práticas corporais e autonomia."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Segunda Guerra Mundial e a hegemonia norte-americana."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Impactos ambientais: poluição, ilha de calor, efeito estufa, chuva ácida."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "<b>Estética</b>: o juízo do gosto; o Belo e o sublime."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Trabalho: fordismo, toyotismo, desemprego, informalidade, terceirização."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Ecologia: cadeias, teias e ciclos biogeoquímicos."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Orgânica II: funções orgânicas</b> — álcool, aldeído, cetona, ácido carboxílico, amina, éter, éster."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Equilíbrio térmico e Lei Zero da Termodinâmica.</b>"}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "<b>Trigonometria no triângulo retângulo:</b> seno, cosseno e tangente; ângulos de rampa e inclinação."}]}, {"n": 16, "ini": "23/11", "fim": "29/11", "iniISO": "2026-11-23", "fimISO": "2026-11-29", "fase": "Consolidação", "faseN": 3, "foco": "<b>Simulado completo nº3</b>. Última semana com conteúdo novo relevante.", "marco": null, "simulado": "Simulado completo nº3 — 60 questões + redação, 13h30 às 19h.", "obras": [], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Redação dentro do simulado, cronometrada. → 2 redações."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Revisão: interpretação e gêneros (só questões)."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Quadro comparativo: todas as escolas em uma página só."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "<b>Teatro</b>: elementos, gêneros, história, teatro do oprimido."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "5 questões cronometradas (10 min)."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Revisão: corpo, arte e cultura."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Guerra Fria e descolonização afro-asiática."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Geopolítica: guerras mundiais, Guerra Fria, nova ordem mundial."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "<b>Estética</b>: indústria cultural; cinema e teatro."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Poder, política, Estado, ideologia e alienação."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Relações ecológicas e impactos ambientais."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Orgânica III: isomeria e carbono assimétrico (quiral).</b>"}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Gases ideais e 1ª Lei da Termodinâmica.</b>"}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Análise combinatória e probabilidade."}], "simH": "5h30"}, {"n": 17, "ini": "30/11", "fim": "06/12", "iniISO": "2026-11-30", "fimISO": "2026-12-06", "fase": "Reta final", "faseN": 4, "foco": "<b>Simulado completo nº4 — o último.</b> Depois dele, só revisão leve.", "marco": null, "simulado": "Simulado completo nº4 — 60 questões + redação, 13h30 às 19h.", "obras": [], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "Repertórios coringa (3 que servem a qualquer tema) + 2 redações."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Revisão: gramática aplicada a texto (só questões)."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Revisão das 5 obras: tema, estilo, contexto, o que pode ser cobrado."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "<b>Dança</b>: movimento, kinesfera, coreografia, dança e indústria cultural."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "5 questões cronometradas (10 min)."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Revisão: esporte e saúde."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Brasil: populismo, governos militares e redemocratização."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Potências, conflitos étnico-religiosos, narcotráfico, América Latina."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Filosofia da ciência: método, verdade, paradigma, bioética."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Cidadania, direitos e movimentos sociais."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Evolução e classificação dos seres vivos."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Estequiometria: cálculos básicos a partir da equação balanceada."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "<b>Eletricidade básica:</b> carga, corrente, tensão, resistência e Lei de Ohm."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "<b>Matrizes, determinantes e sistemas lineares.</b> Caiu em 2 das 4 provas e não estava no plano antigo."}], "simH": "5h30"}, {"n": 18, "ini": "07/12", "fim": "13/12", "iniISO": "2026-12-07", "fimISO": "2026-12-13", "fase": "Reta final", "faseN": 4, "foco": "<b>PROVA — DOMINGO 13/12.</b> Semana de revisão leve e de sono. Confirme horário e local no seu cartão de inscrição.", "marco": ["prova", "13/12 — PROVA. No último edital: portões 12h às 13h, prova das 13h30 às 19h (5h30). Confirme no edital de 2027."], "simulado": null, "obras": [], "blocos": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5, "hs": "3h30", "t": "1 redação leve na quarta. Depois só releitura das suas melhores."}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0, "hs": "3h", "t": "Revisão leve: releitura do banco de erros. Sem conteúdo novo."}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0, "hs": "3h", "t": "Revisão leve: só os seus 5 fichamentos."}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0, "hs": "2h", "t": "Revisão leve: treino de leitura de imagem (15 obras, 2 min cada)."}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0, "hs": "1h", "t": "Revisão leve: banco de vocabulário."}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5, "hs": "30min", "t": "Revisão leve."}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0, "hs": "2h", "t": "Revisão leve: nova ordem internacional e Brasil contemporâneo."}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0, "hs": "2h", "t": "Revisão leve: Paraná + cartografia."}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Revisão leve: Estética — o bloco mais provável para o seu curso."}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25, "hs": "1h15", "t": "Revisão leve: indústria cultural — cruza com Filosofia e Artes."}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5, "hs": "1h30", "t": "Revisão leve: célula e ecologia — os dois mais cobrados."}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0, "hs": "1h", "t": "Revisão leve: tabela periódica, ligações e <b>funções orgânicas</b> — a questão 33 foi orgânica em 4 de 4 provas."}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0, "hs": "1h", "t": "Revisão leve: <b>termologia e fluidos</b> — juntos foram 10 das 16 questões das 4 provas."}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5, "hs": "2h30", "t": "Revisão leve: matemática comercial, funções e geometria — os três maiores blocos."}]}], "areas": {"red": ["Redação", "30% da nota"], "lin": ["Linguagens", "25 questões · 29,2%"], "hum": ["Humanas", "16 questões · 18,7%"], "nat": ["Natureza", "12 questões · 14,0%"], "mat": ["Matemática", "7 questões · 8,2%"]}, "fases": [{"ini": 1, "fim": 6, "nome": "Fundação", "desc": "Reconstruir a base. Nada de simulado completo ainda — o objetivo é parar de olhar pra matéria e não entender nada."}, {"ini": 7, "fim": 12, "nome": "Expansão", "desc": "Cobrir o edital. É a fase mais longa e a mais difícil de manter a disciplina."}, {"ini": 13, "fim": 16, "nome": "Consolidação", "desc": "Simulados e revisão guiada pelos seus erros. Aqui o ganho vem de repetir o que você erra, não de ver coisa nova."}, {"ini": 17, "fim": 18, "nome": "Reta final", "desc": "Zero conteúdo novo. Revisão leve, ritmo de prova e descanso."}], "obras": [{"t": "Iracema", "a": "José de Alencar", "g": "Romance", "s1": 1, "s2": 3, "n": "Romantismo · indianismo. Curto e de linguagem trabalhada — leia atento às metáforas."}, {"t": "Lira dos 20 Anos", "a": "Álvares de Azevedo", "g": "Poesia", "s1": 4, "s2": 6, "n": "Ultrarromantismo. Leia em voz alta: métrica e ritmo caem em prova."}, {"t": "Sagarana", "a": "Guimarães Rosa", "g": "Contos", "s1": 7, "s2": 9, "n": "A mais difícil. 9 contos — leia um a cada 2-3 dias, sem pressa."}, {"t": "Pau Brasil", "a": "Oswald de Andrade", "g": "Poesia", "s1": 10, "s2": 11, "n": "Modernismo 1ª geração. Curto. Casa com a Semana de 22 em Literatura."}, {"t": "O Filho Eterno", "a": "Cristóvão Tezza", "g": "Romance", "s1": 12, "s2": 14, "n": "Contemporâneo, leitura fluida. O autor é paranaense — vale saber."}], "rotina": [{"dia": "Segunda", "total": "3h", "blocos": [{"nome": "Português", "area": "lin", "h": "1h30"}, {"nome": "História", "area": "hum", "h": "1h30"}]}, {"dia": "Terça", "total": "3h", "blocos": [{"nome": "Literatura", "area": "lin", "h": "1h30"}, {"nome": "Biologia", "area": "nat", "h": "1h30"}]}, {"dia": "Quarta", "total": "3h", "blocos": [{"nome": "Redação", "area": "red", "h": "2h"}, {"nome": "Geografia", "area": "hum", "h": "1h"}]}, {"dia": "Quinta", "total": "3h30", "blocos": [{"nome": "Português", "area": "lin", "h": "1h30"}, {"nome": "Matemática", "area": "mat", "h": "2h"}]}, {"dia": "Sexta", "total": "3h", "blocos": [{"nome": "Artes", "area": "lin", "h": "2h"}, {"nome": "Física", "area": "nat", "h": "1h"}]}, {"dia": "Sábado", "total": "5h15", "blocos": [{"nome": "Literatura", "area": "lin", "h": "1h30"}, {"nome": "Redação", "area": "red", "h": "1h30"}, {"nome": "Química", "area": "nat", "h": "1h"}, {"nome": "Filosofia", "area": "hum", "h": "1h15"}]}, {"dia": "Domingo", "total": "4h45", "blocos": [{"nome": "História", "area": "hum", "h": "30min"}, {"nome": "Geografia", "area": "hum", "h": "1h"}, {"nome": "Sociologia", "area": "hum", "h": "1h15"}, {"nome": "Matemática", "area": "mat", "h": "30min"}, {"nome": "Língua Estrangeira", "area": "lin", "h": "1h"}, {"nome": "Educação Física", "area": "lin", "h": "30min"}]}], "materias": [{"id": "red", "nome": "Redação", "area": "red", "h": 3.5}, {"id": "por", "nome": "Português", "area": "lin", "h": 3.0}, {"id": "lit", "nome": "Literatura", "area": "lin", "h": 3.0}, {"id": "art", "nome": "Artes", "area": "lin", "h": 2.0}, {"id": "est", "nome": "Língua Estrangeira", "area": "lin", "h": 1.0}, {"id": "edf", "nome": "Educação Física", "area": "lin", "h": 0.5}, {"id": "his", "nome": "História", "area": "hum", "h": 2.0}, {"id": "geo", "nome": "Geografia", "area": "hum", "h": 2.0}, {"id": "fil", "nome": "Filosofia", "area": "hum", "h": 1.25}, {"id": "soc", "nome": "Sociologia", "area": "hum", "h": 1.25}, {"id": "bio", "nome": "Biologia", "area": "nat", "h": 1.5}, {"id": "qui", "nome": "Química", "area": "nat", "h": 1.0}, {"id": "fis", "nome": "Física", "area": "nat", "h": 1.0}, {"id": "mat", "nome": "Matemática", "area": "mat", "h": 2.5}], "prova": "2026-12-13"};
+
+/* ---------- contagem regressiva ---------- */
+(function(){
+  const prova = new Date(D.prova + "T13:30:00-03:00");
+  const el = document.getElementById("dd");
+  function tick(){
+    const d = Math.ceil((prova - new Date()) / 86400000);
+    el.textContent = d > 0 ? d : (d === 0 ? "hoje" : "—");
+  }
+  tick(); setInterval(tick, 60000);
+})();
+
+/* ---------- pesos ---------- */
+(function(){
+  const rows = [
+    ["Redação",    300, "red"],
+    ["Linguagens", 292, "lin"],
+    ["Humanas",    187, "hum"],
+    ["Natureza",   140, "nat"],
+    ["Matemática",  82, "mat"],
+  ];
+  document.getElementById("pesos").innerHTML = rows.map(([n,v,a]) =>
+    `<div class="peso"><div class="nm">${n}</div>
+     <div class="track"><div class="fill f-${a}" data-w="${(v/300*100).toFixed(1)}%"></div></div>
+     <div class="vl">${v} pts</div></div>`).join("");
+})();
+
+/* rotina: renderizada depois das semanas (precisa saber a semana atual) */
+
+/* ---------- obras ---------- */
+document.getElementById("obras").innerHTML = D.obras.map(o =>
+  `<div class="obra"><span class="rng">Semanas ${o.s1}–${o.s2}</span>
+   <h3>${o.t}</h3><div class="au">${o.a} · ${o.g}</div>
+   <div class="nt">${o.n}</div></div>`).join("");
+
+/* ---------- semanas ---------- */
+const hoje = new Date(); hoje.setHours(0,0,0,0);
+let atual = 0;
+D.semanas.forEach(s => {
+  const a = new Date(s.iniISO + "T00:00:00"), b = new Date(s.fimISO + "T23:59:59");
+  if (hoje >= a && hoje <= b) atual = s.n;
+});
+if (!atual) atual = hoje < new Date(D.semanas[0].iniISO + "T00:00:00") ? 1 : 18;
+
+const host = document.getElementById("weeks");
+let html = "";
+D.fases.forEach(f => {
+  html += `<div class="fase-hd"><h3>Fase ${D.fases.indexOf(f)+1} · ${f.nome}</h3>
+           <span class="tag">Semanas ${f.ini}–${f.fim}</span><p>${f.desc}</p></div>`;
+  D.semanas.filter(s => s.n >= f.ini && s.n <= f.fim).forEach(s => {
+    const tags = [];
+    if (s.simulado) tags.push(`<span class="tag sim">Simulado</span>`);
+    if (s.marco) tags.push(`<span class="tag ${s.marco[0]}">${s.marco[0]==="prova"?"Prova":"Prazo"}</span>`);
+    s.obras.forEach(o => tags.push(`<span class="tag">${o}</span>`));
+
+    let banners = "";
+    if (s.marco) banners += `<div class="banner ${s.marco[0]}">${s.marco[1]}</div>`;
+    if (s.simulado) banners += `<div class="banner sim"><b>Simulado:</b> ${s.simulado}</div>`;
+
+    const tasks = s.blocos.map(bl =>
+      `<label class="task" data-k="${s.n}-${bl.id}">
+         <input type="checkbox" data-w="${s.n}" data-m="${bl.id}">
+         <span class="mt"><i class="b-${bl.area}"></i>${bl.nome}</span>
+         <span class="tx">${bl.t}</span>
+         <span class="hr">${bl.hs}</span>
+       </label>`).join("");
+
+    html += `<details class="wk${s.n===atual?" now":""}" data-w="${s.n}"${s.n===atual?" open":""}>
+      <summary>
+        <div class="wkn">Semana<b>${s.n}</b>${s.ini}–${s.fim}</div>
+        <div class="wkt"><div class="fc">${s.foco}</div><div class="tags">${tags.join("")}</div></div>
+        <div class="wkm">
+          <div class="mini"><svg width="42" height="42" viewBox="0 0 42 42">
+            <circle cx="21" cy="21" r="17" fill="none" stroke="rgba(22,24,29,.10)" stroke-width="4"/>
+            <circle class="ring" cx="21" cy="21" r="17" fill="none" stroke="var(--accent)" stroke-width="4"
+              stroke-linecap="round" stroke-dasharray="106.8" stroke-dashoffset="106.8"
+              style="transition:stroke-dashoffset .4s cubic-bezier(.16,1,.3,1)"/>
+          </svg><span>0</span></div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="wkb">${banners}<div class="tasks">${tasks}</div></div>
+    </details>`;
+  });
+});
+host.innerHTML = html;
+
+/* ---------- progresso ---------- */
+const boxes = [...document.querySelectorAll('.task input')];
+const TOTAL = boxes.length;
+document.getElementById("pgt").textContent = `0 de ${TOTAL} blocos`;
+
+function paint(){
+  let done = 0;
+  boxes.forEach(b => {
+    b.closest(".task").classList.toggle("done", b.checked);
+    if (b.checked) done++;
+  });
+  const pct = TOTAL ? Math.round(done / TOTAL * 100) : 0;
+  document.getElementById("pgb").style.width = pct + "%";
+  document.getElementById("pgp").textContent = pct + "%";
+  document.getElementById("pgt").textContent = `${done} de ${TOTAL} blocos`;
+
+  document.querySelectorAll("details.wk").forEach(w => {
+    const ring = w.querySelector(".ring"), num = w.querySelector(".mini span");
+    if (!ring || !num) return;
+    const bs = [...w.querySelectorAll("input")];
+    const d = bs.filter(x => x.checked).length;
+    const p = bs.length ? d / bs.length : 0;
+    ring.style.strokeDashoffset = (106.8 * (1 - p)).toFixed(1);
+    num.textContent = d;
+  });
+}
+/* ---------- rotina = agenda da semana, sincronizada com a lista ---------- */
+const MID = {}; D.materias.forEach(m => MID[m.nome] = m.id);
+const NW = D.semanas.length, NSLOT = 24;
+const day = new Uint8Array(NW * NSLOT);
+const dIx = (w, s) => (w - 1) * NSLOT + s;
+let agenda = atual;
+
+/* nas semanas de simulado o domingo vira só prova e as 4h45 se espalham na semana */
+const REDIST = { "História":"Segunda", "Língua Estrangeira":"Terça", "Geografia":"Quarta",
+                 "Matemática":"Quinta", "Sociologia":"Sexta", "Educação Física":"Sábado" };
+const toMin = s => { let m = String(s).match(/^(\d+)h(\d+)?$/); if (m) return +m[1]*60 + (+(m[2]||0));
+                     m = String(s).match(/^(\d+)min$/); return m ? +m[1] : 0; };
+const fmtH  = t => { const H = Math.floor(t/60), M = t%60;
+                     return H ? (M ? `${H}h${String(M).padStart(2,"0")}` : `${H}h`) : `${M}min`; };
+
+function rotinaFor(w){
+  const s = D.semanas.find(x => x.n === w), prev = D.semanas.find(x => x.n === w - 1);
+  const dias = D.rotina.map(d => ({ dia:d.dia, blocos:d.blocos.map(b => ({...b})) }));
+  if (s && s.simulado){
+    const dom = dias.find(d => d.dia === "Domingo");
+    const mover = dom.blocos;
+    dom.blocos = [{ nome:"Simulado", area:"sim", h:s.simH || "5h30", sim:true, txt:s.simulado }];
+    mover.forEach(b => {
+      const alvo = dias.find(d => d.dia === REDIST[b.nome]); if (!alvo) return;
+      const ja = alvo.blocos.find(x => x.nome === b.nome);      /* junta em um bloco só */
+      if (ja) ja.h = fmtH(toMin(ja.h) + toMin(b.h)); else alvo.blocos.push(b);
+    });
+  }
+  if (prev && prev.simulado){
+    dias.find(d => d.dia === "Segunda").blocos.push({ nome:"Correção do simulado", area:"sim", h:"1h30", sim:true,
+      txt:`Revisar erro por erro o simulado de ${prev.ini}–${prev.fim}. Sem corrigir, o simulado só mede.` });
+  }
+  dias.forEach(d => d.total = fmtH(d.blocos.reduce((a, b) => a + toMin(b.h), 0)));
+  return dias;
+}
+const SLOTC = {};
+function slotsOfWeek(w){
+  if (!SLOTC[w]){
+    const out = [];
+    rotinaFor(w).forEach(d => d.blocos.forEach(b => out.push({ dia:d.dia, mid: MID[b.nome] || "" })));
+    SLOTC[w] = out;
+  }
+  return SLOTC[w];
+}
+const idxOf = (w, mid) => mid ? slotsOfWeek(w).map((s, i) => s.mid === mid ? i : -1).filter(i => i >= 0) : [];
+const wkBox = (w, mid) => document.querySelector(`.task input[data-w="${w}"][data-m="${mid}"]`);
+
+function upFromRot(mid){
+  const wb = wkBox(agenda, mid); if (!wb) return;
+  const ix = idxOf(agenda, mid);
+  wb.checked = ix.length > 0 && ix.every(i => day[dIx(agenda, i)] === 1);
+}
+function downToRot(w, mid, v){ idxOf(w, mid).forEach(i => day[dIx(w, i)] = v ? 1 : 0); }
+
+function renderRot(){
+  const s = D.semanas.find(x => x.n === agenda) || D.semanas[0];
+  const T = {}; s.blocos.forEach(b => T[b.id] = b.t);
+  const dias = rotinaFor(agenda);
+  const totSem = fmtH(dias.reduce((a, d) => a + toMin(d.total), 0));
+  let k = 0;
+  const cards = dias.map(d => {
+    const itens = d.blocos.map(b => {
+      const mid = MID[b.nome] || "", si = k++;
+      return `<label class="rot-i${b.sim ? " sim" : ""}">
+        <input type="checkbox" class="rchk" data-s="${si}" data-m="${mid}" ${day[dIx(agenda, si)] ? "checked" : ""}>
+        <span class="rn"><i class="b-${b.area}"></i>${b.nome}</span>
+        <span class="rhh">${b.h}</span>
+        <span class="rt">${b.sim ? b.txt : (T[mid] || "—")}</span></label>`;
+    }).join("");
+    const isSim = d.blocos.some(b => b.sim);
+    return `<details class="rot-d${isSim ? " simd" : ""}"><summary><b>${d.dia}</b><span class="rc"></span>
+        <span class="rh">${d.total}</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </summary><div class="rot-b">${itens}</div></details>`;
+  }).join("");
+
+  document.getElementById("rot").innerHTML =
+    `<div class="rot-wk">
+       <button class="rnav" id="rPrev" ${agenda <= 1 ? "disabled" : ""}>‹</button>
+       <button class="rnav" id="rNext" ${agenda >= NW ? "disabled" : ""}>›</button>
+       Agenda de <b>Semana ${s.n}</b> · ${s.ini}–${s.fim} <span class="fc">${s.foco}</span>
+       ${agenda !== atual ? `<button class="rnav hoje" id="rNow">voltar para hoje (${atual})</button>` : ""}
+       <span class="tot">${totSem} nesta semana</span>
+     </div>` + cards;
+
+  document.querySelectorAll(".rchk").forEach(b => b.addEventListener("change", () => {
+    day[dIx(agenda, +b.dataset.s)] = b.checked ? 1 : 0;
+    upFromRot(b.dataset.m); refresh();
+  }));
+  const p = document.getElementById("rPrev"), n = document.getElementById("rNext"), hj = document.getElementById("rNow");
+  if (p)  p.onclick  = () => { if (agenda > 1){ agenda--; renderRot(); } };
+  if (n)  n.onclick  = () => { if (agenda < NW){ agenda++; renderRot(); } };
+  if (hj) hj.onclick = () => { agenda = atual; renderRot(); };
+  paintRot();
+}
+
+function paintRot(){
+  document.querySelectorAll(".rchk").forEach(b => {
+    b.checked = day[dIx(agenda, +b.dataset.s)] === 1;
+    b.closest(".rot-i").classList.toggle("done", b.checked);
+  });
+  document.querySelectorAll("details.rot-d").forEach(d => {
+    const bs = [...d.querySelectorAll(".rchk")];
+    const n = bs.filter(x => x.checked).length, c = d.querySelector(".rc");
+    c.textContent = `${n}/${bs.length}`;
+    c.classList.toggle("full", bs.length > 0 && n === bs.length);
+  });
+  document.querySelectorAll(".task").forEach(t => {
+    const inp = t.querySelector("input"), w = +inp.dataset.w, ix = idxOf(w, inp.dataset.m);
+    const n = ix.filter(i => day[dIx(w, i)] === 1).length;
+    t.classList.toggle("half", n > 0 && n < ix.length);
+  });
+}
+
+function refresh(){ paint(); paintRot(); save(); }
+
+boxes.forEach(b => b.addEventListener("change", () => {
+  downToRot(+b.dataset.w, b.dataset.m, b.checked);
+  refresh();
+}));
+try { paint(); renderRot(); } catch (e) { console.error("rotina:", e); }
+
+/* ---------- controles ---------- */
+document.getElementById("bNow").onclick = () => {
+  const w = document.querySelector(`details.wk[data-w="${atual}"]`);
+  if (w){ w.open = true; w.scrollIntoView({behavior:"smooth", block:"center"}); }
+};
+document.getElementById("bOpen").onclick  = () => document.querySelectorAll("details.wk").forEach(w => w.open = true);
+document.getElementById("bClose").onclick = () => document.querySelectorAll("details.wk").forEach(w => w.open = false);
+
+/* ---------- salvar / restaurar ---------- */
+const ta = document.getElementById("code");
+const KEY = "embap-crono-v2";
+
+function allBits(){
+  let s = "";
+  boxes.forEach(b => s += b.checked ? "1" : "0");
+  for (let i = 0; i < day.length; i++) s += day[i] ? "1" : "0";
+  return s;
+}
+function applyBits(bits){
+  boxes.forEach((b, i) => b.checked = bits[i] === "1");
+  if (bits.length >= TOTAL + day.length){
+    for (let i = 0; i < day.length; i++) day[i] = bits[TOTAL + i] === "1" ? 1 : 0;
+  } else {
+    day.fill(0);
+    boxes.forEach(b => { if (b.checked) downToRot(+b.dataset.w, b.dataset.m, true); });
+  }
+  paint(); renderRot();
+}
+function save(){ try { localStorage.setItem(KEY, allBits()); } catch(e){} }
+
+document.getElementById("bGen").onclick = () => {
+  const bits = allBits(); let out = "";
+  for (let i = 0; i < bits.length; i += 5)
+    out += parseInt(bits.slice(i, i + 5).padEnd(5, "0"), 2).toString(32);
+  ta.value = "EMBAP1-" + out; ta.select();
+};
+document.getElementById("bLoad").onclick = () => {
+  const v = ta.value.trim().replace(/^EMBAP1-/, "");
+  if (!v) return alert("Cole o código do seu progresso primeiro.");
+  let bits = "";
+  for (const c of v){
+    const n = parseInt(c, 32);
+    if (isNaN(n)) return alert("Código inválido. Confira se copiou o texto inteiro.");
+    bits += n.toString(2).padStart(5, "0");
+  }
+  applyBits(bits); save();
+};
+document.getElementById("bReset").onclick = () => {
+  if (!confirm("Desmarcar todos os blocos?")) return;
+  boxes.forEach(b => b.checked = false);
+  day.fill(0); ta.value = ""; paint(); renderRot(); save();
+};
+
+try { const v = localStorage.getItem(KEY); if (v) applyBits(v); } catch(e){}
+
+/* ---------- reveal ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+}), {threshold:.08});
+document.querySelectorAll(".reveal").forEach(e => io.observe(e));
+
+const io2 = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){
+    e.target.querySelectorAll(".fill").forEach(f => f.style.width = f.dataset.w);
+    io2.unobserve(e.target);
+  }
+}), {threshold:.2});
+document.querySelectorAll(".pesos").forEach(e => io2.observe(e));
+</script>
+</body>
+</html>
